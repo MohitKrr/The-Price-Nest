@@ -1,0 +1,239 @@
+/*.custom-card {
+  background-color: #f0f9ff; 
+  border-radius: 12px;
+  border: none;
+}
+
+.custom-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+
+.custom-form label {
+  font-weight: 600;
+}
+
+.custom-form input.form-control {
+  font-size: 1.05rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #2596be;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.custom-form input.form-control:focus {
+  border-color: #2596be;
+  box-shadow: 0 0 0 0.2rem rgba(37, 150, 190, 0.25);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #2596be, #005f7f);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #007ba7, #004b61);
+  color: #e0f0ff;
+}*/
+
+
+
+
+
+
+/* .custom-card { 
+  background-color: #f5f0fb; 
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 15px rgba(123, 62, 188, 0.2); 
+}
+
+.custom-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+
+.custom-form label {
+  font-weight: 600;
+  color: #4b2e7a; 
+}
+
+.custom-form input.form-control {
+  font-size: 1.05rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #7B3EBC; 
+  box-shadow: 0 1px 3px rgba(123, 62, 188, 0.1);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-form input.form-control:focus {
+  border-color: #7B3EBC;
+  box-shadow: 0 0 8px rgba(123, 62, 188, 0.5);
+  outline: none;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #7B3EBC, #9a63d1);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #5a2a8a, #7048b0);
+  color: #e0d7f8;
+}
+
+
+.forgot-link {
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: #7B3EBC;
+}
+
+.forgot-link:hover {
+  color: #5a2a8a;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .custom-card {
+    margin: 0 15px;
+  }
+} */
+
+
+/* Page wrapper with gradient background */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #e8ddf7, #f3eaff);
+  padding: 20px;
+}
+
+/* Login card */
+.custom-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(123, 62, 188, 0.2);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Branding Icon */
+.login-icon {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* Heading */
+.login-title {
+  font-size: 1.8rem;
+  color: #7B3EBC;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.login-subtitle {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0px;
+
+}
+
+/* Labels */
+.custom-form label {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.custom-form input:focus {
+  outline: none;
+}
+
+/* Inputs */
+.custom-form input.form-control {
+  padding: 12px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.custom-form input.form-control:focus {
+  border-color: #7B3EBC;
+  box-shadow: 0 0 8px rgba(123, 62, 188, 0.2);
+}
+
+/* Forgot password */
+.forgot-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #7B3EBC;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: #5a2a8a;
+  text-decoration: underline;
+}
+
+/* Button */
+.btn-gradient {
+  background: linear-gradient(135deg, #7B3EBC, #a57ae2);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #5a2a8a, #8d5dd4);
+  color: #eae1fc;
+}
+
+.forgot-link:hover {
+  color: #0056b3; /* Color on hover */
+  text-decoration: underline; /* Optional: adds underline on hover */
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive card margin */
+@media (max-width: 480px) {
+  .custom-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}

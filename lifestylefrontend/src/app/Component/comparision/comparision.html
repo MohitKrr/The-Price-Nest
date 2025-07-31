@@ -1,0 +1,216 @@
+<div class="comparison-page-container">
+  <!-- Header Section -->
+  <div class="comparison-header-section">
+    <div class="container text-center">
+      <a routerLink="/countries" class="back-link">
+        <i class="fas fa-arrow-left me-2"></i> Back to Countries
+      </a>
+      <h1 class="comparison-title mt-4 mb-2">
+        Country <span class="gradient-text">Comparison</span>
+      </h1>
+      <p class="comparison-subtitle mb-5">
+        Compare two countries side-by-side across all lifestyle metrics
+      </p>
+    </div>
+  </div>
+
+  <!-- Country Selection Cards -->
+  <div class="container country-selection-section">
+    <div class="row justify-content-center">
+      <!-- First Country Selection Card -->
+      <div class="col-lg-5 col-md-6 mb-4">
+        <div class="country-select-card">
+          <h4 class="card-title">Select First Country</h4>
+          <div class="custom-select-wrapper">
+            <select class="form-select" (change)="onSelectCountry1($event)">
+              <option value="">-- Select Country --</option>
+              <option *ngFor="let c of countries" [value]="c.countryName">{{ c.countryName }}</option>
+            </select>
+            <i class="fas fa-chevron-down select-arrow"></i>
+          </div>
+
+          <div *ngIf="selectedCountry1" class="selected-country-display mt-4">
+            <span class="country-abbr">{{ selectedCountry1Abbr}}</span>
+            <h5 class="country-full-name">{{ selectedCountry1.countryName }}</h5>
+            <span class="country-rank">Global Rank #{{ selectedCountry1.globalRank }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Country Selection Card -->
+      <div class="col-lg-5 col-md-6 mb-4">
+        <div class="country-select-card">
+          <h4 class="card-title">Select Second Country</h4>
+          <div class="custom-select-wrapper">
+            <select class="form-select" (change)="onSelectCountry2($event)">
+              <option value="">-- Select Country --</option>
+              <option *ngFor="let c of countries" [value]="c.countryName">{{ c.countryName }}</option>
+            </select>
+            <i class="fas fa-chevron-down select-arrow"></i>
+          </div>
+
+          <div *ngIf="selectedCountry2" class="selected-country-display mt-4">
+            <span class="country-abbr">{{ selectedCountry2Abbr }}</span>
+            <h5 class="country-full-name">{{ selectedCountry2.countryName }}</h5>
+            <span class="country-rank">Global Rank #{{ selectedCountry2.globalRank }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Table / Details Section -->
+  <div *ngIf="selectedCountry1 && selectedCountry2" class="container comparison-details-section mt-5">
+    <h3 class="comparison-overview-title text-center mb-4">
+      {{ selectedCountry1.countryName }} vs {{ selectedCountry2.countryName }}
+    </h3>
+
+    <!-- Overview Section -->
+    <div class="comparison-category">
+      <h4 class="category-title">Overview</h4>
+      <div class="metric-row">
+        <span class="metric-label">Global Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.globalRank, selectedCountry2.globalRank, 'rank')">{{ selectedCountry1.globalRank }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.globalRank, selectedCountry1.globalRank, 'rank')">{{ selectedCountry2.globalRank }}</span>
+          <i class="fas" [ngClass]="getRankIcon(selectedCountry1.globalRank, selectedCountry2.globalRank)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Average Cost of Living</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.averageCostOfLiving, selectedCountry2.averageCostOfLiving, 'cost')">${{ selectedCountry1.averageCostOfLiving }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.averageCostOfLiving, selectedCountry1.averageCostOfLiving, 'cost')">${{ selectedCountry2.averageCostOfLiving }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.averageCostOfLiving, selectedCountry2.averageCostOfLiving)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Tax Rate</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.taxCost, selectedCountry2.taxCost, 'cost')">{{ selectedCountry1.taxCost }}%</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.taxCost, selectedCountry1.taxCost, 'cost')">{{ selectedCountry2.taxCost }}%</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.taxCost, selectedCountry2.taxCost)"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Living Costs Section -->
+    <div class="comparison-category">
+      <h4 class="category-title">Living Costs</h4>
+      <div class="metric-row">
+        <span class="metric-label">Rent Cost</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.rentCost, selectedCountry2.rentCost, 'cost')">${{ selectedCountry1.rentCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.rentCost, selectedCountry1.rentCost, 'cost')">${{ selectedCountry2.rentCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.rentCost, selectedCountry2.rentCost)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Groceries</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.groceriesCost, selectedCountry2.groceriesCost, 'cost')">${{ selectedCountry1.groceriesCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.groceriesCost, selectedCountry1.groceriesCost, 'cost')">${{ selectedCountry2.groceriesCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.groceriesCost, selectedCountry2.groceriesCost)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Restaurant Cost</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.restrauntCost, selectedCountry2.restrauntCost, 'cost')">${{ selectedCountry1.restrauntCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.restrauntCost, selectedCountry1.restrauntCost, 'cost')">${{ selectedCountry2.restrauntCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.restrauntCost, selectedCountry2.restrauntCost)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Healthcare</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.healthcareCost, selectedCountry2.healthcareCost, 'cost')">${{ selectedCountry1.healthcareCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.healthcareCost, selectedCountry1.healthcareCost, 'cost')">${{ selectedCountry2.healthcareCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.healthcareCost, selectedCountry2.healthcareCost)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Education</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.educationCost, selectedCountry2.educationCost, 'cost')">${{ selectedCountry1.educationCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.educationCost, selectedCountry1.educationCost, 'cost')">${{ selectedCountry2.educationCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.educationCost, selectedCountry2.educationCost)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Transportation</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.transportationCost, selectedCountry2.transportationCost, 'cost')">${{ selectedCountry1.transportationCost }}/month</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.transportationCost, selectedCountry1.transportationCost, 'cost')">${{ selectedCountry2.transportationCost }}/month</span>
+          <i class="fas" [ngClass]="getCostIcon(selectedCountry1.transportationCost, selectedCountry2.transportationCost)"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quality & Safety Section -->
+    <div class="comparison-category">
+      <h4 class="category-title">Quality & Safety</h4>
+      <div class="metric-row">
+        <span class="metric-label">Women Safety Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.womenSafetyRank, selectedCountry2.womenSafetyRank, 'rank')">#{{ selectedCountry1.womenSafetyRank }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.womenSafetyRank, selectedCountry1.womenSafetyRank, 'rank')">#{{ selectedCountry2.womenSafetyRank }}</span>
+          <i class="fas" [ngClass]="getRankIcon(selectedCountry1.womenSafetyRank, selectedCountry2.womenSafetyRank)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Weather Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.weatherRank, selectedCountry2.weatherRank, 'rank')">#{{ selectedCountry1.weatherRank }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.weatherRank, selectedCountry1.weatherRank, 'rank')">#{{ selectedCountry2.weatherRank }}</span>
+          <i class="fas" [ngClass]="getRankIcon(selectedCountry1.weatherRank, selectedCountry2.weatherRank)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Environmental Index</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.environmentalIndex, selectedCountry2.environmentalIndex, 'environment')">{{ selectedCountry1.environmentalIndex }}/100</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.environmentalIndex, selectedCountry1.environmentalIndex, 'environment')">{{ selectedCountry2.environmentalIndex }}/100</span>
+          <i class="fas" [ngClass]="getEnvironmentalIcon(selectedCountry1.environmentalIndex, selectedCountry2.environmentalIndex)"></i>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Crime Rate</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry1.crimeRate, selectedCountry2.crimeRate, 'crime')">{{ selectedCountry1.crimeRate }} per 100k</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="getValueClass(selectedCountry2.crimeRate, selectedCountry1.crimeRate, 'crime')">{{ selectedCountry2.crimeRate }} per 100k</span>
+          <i class="fas" [ngClass]="getCrimeIcon(selectedCountry1.crimeRate, selectedCountry2.crimeRate)"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommended Country Section -->
+  <div *ngIf="recommendedCountry" class="container recommendation-section mt-5 mb-5">
+    <div class="recommendation-card text-center">
+      <h4 class="recommendation-title">Which country is recommended for you?</h4>
+      <p class="recommendation-text">Based on a balanced comparison of the selected countries, we recommend:</p>
+      <div class="recommended-country-display mt-4">
+        <span class="country-abbr">{{ recommendedCountryAbbr }}</span>
+        <h5 class="country-full-name">{{ recommendedCountry.countryName }}</h5>
+        <span class="country-rank">Global Rank #{{ recommendedCountry.globalRank }}</span>
+      </div>
+      <p class="mt-3 recommendation-note">
+        This recommendation is based on a simplified scoring of lower costs and higher safety/environmental ranks.
+      </p>
+    </div>
+  </div>
+</div>

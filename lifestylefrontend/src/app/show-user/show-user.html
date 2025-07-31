@@ -1,0 +1,13 @@
+<div class="container d-flex flex-wrap gap-3" >
+    @for(u of users; track u.email)
+    {
+      <div class="card" >
+        <div class="card-body"  >
+          <h3>{{u.email}}</h3>
+          <h3>{{u.password}}</h3> 
+        </div>
+      </div>
+    }
+</div>
+
+

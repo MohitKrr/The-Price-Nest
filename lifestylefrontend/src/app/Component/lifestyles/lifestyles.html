@@ -1,0 +1,30 @@
+<div class="card-grid">
+    @for (lifestyle of lifestyles; track lifestyle.id) {
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2>{{ lifestyle.countryName }}</h2>
+          </div>
+          <div class="card-back">
+            <h3>{{ lifestyle.countryName }}</h3>
+            <ul>
+              <li><strong>Tax Cost:</strong> {{ lifestyle.taxCost }}</li>
+              <li><strong>Global Rank:</strong> {{ lifestyle.globalRank }}</li>
+              <li><strong>Rent Cost:</strong> {{ lifestyle.rentCost }}</li>
+              <li><strong>Groceries Cost:</strong> {{ lifestyle.groceriesCost }}</li>
+              <li><strong>Restaurant Cost:</strong> {{ lifestyle.restrauntCost }}</li>
+              <li><strong>Healthcare Cost:</strong> {{ lifestyle.healthcareCost }}</li>
+              <li><strong>Education Cost:</strong> {{ lifestyle.educationCost }}</li>
+              <li><strong>Transportation Cost:</strong> {{ lifestyle.transportationCost }}</li>
+              <li><strong>Women Safety Rank:</strong> {{ lifestyle.womenSafetyRank }}</li>
+              <li><strong>Weather Rank:</strong> {{ lifestyle.weatherRank }}</li>
+              <li><strong>Environmental Index:</strong> {{ lifestyle.environmentalIndex }}</li>
+              <li><strong>Crime Rate:</strong> {{ lifestyle.crimeRate }}</li>
+              <li><strong>Avg. Cost of Living:</strong> {{ lifestyle.averageCostOfLiving }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  

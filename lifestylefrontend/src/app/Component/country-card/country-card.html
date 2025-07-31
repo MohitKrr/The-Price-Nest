@@ -1,0 +1,70 @@
+<div class="country-card"
+     [ngClass]="{'is-hovered': isHovered}"
+     (mouseenter)="onMouseEnter()"
+     (mouseleave)="onMouseLeave()">
+
+  <div class="initial-text" *ngIf="!isHovered">
+    {{ country.name }}
+  </div>
+
+  <div class="hover-content" *ngIf="isHovered">
+    <div class="card-header d-flex justify-content-between align-items-center mb-3">
+      <div class="country-abbr">{{ country.abbr }}</div>
+      <div class="d-flex align-items-center">
+        <span class="country-name">{{ country.name }}</span>
+        <span class="global-rank ms-2">#{{ country.rank }} Global</span>
+        <i class="fas fa-star yellow-star ms-2"></i>
+      </div>
+      <div class="avg-cost">Avg Cost <span class="cost-value">${{ country.avgCost }}</span></div>
+    </div>
+
+    <div class="details-row mb-2">
+      <span class="detail-label">Tax Rate</span> <span class="detail-value">{{ country.taxRate }}%</span>
+      <span class="detail-label ms-4">Environment</span> <span class="detail-value">{{ country.environment }}/100</span>
+    </div>
+
+    <hr class="card-divider">
+
+    <h6 class="living-costs-title mb-3">Living Costs</h6>
+    <div class="living-costs-grid">
+      <div class="cost-item">
+        <span class="cost-label">Rent</span> <span class="cost-amount">${{ country.rent }}</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Food</span> <span class="cost-amount">${{ country.food }}</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Healthcare</span> <span class="cost-amount">${{ country.healthcare }}</span>
+      </div>
+      <div class="cost-item">
+        <span class="cost-label">Transport</span> <span class="cost-amount">${{ country.transport }}</span>
+      </div>
+    </div>
+
+    <hr class="card-divider">
+
+    <!-- Add to Favourite Button - Always Visible for both guest and logged-in users -->
+    <div *ngIf="showAddToFavourite" class="favourite-section mb-3">
+      <button *ngIf="!isAlreadyFavourite" class="btn btn-warning btn-sm w-100" (click)="addToFavourite()">
+        <i class="fas fa-heart me-1"></i>
+        <span>Add to Favourite</span>
+      </button>
+      <button *ngIf="isAlreadyFavourite" class="btn btn-danger btn-sm w-100" (click)="removeFromFavourite()">
+        <i class="fas fa-heart-broken me-1"></i>
+        <span>Remove from Favourite</span>
+      </button>
+    </div>
+
+    <!-- Safety and Weather Buttons - Always Visible -->
+    <div class="safety-weather-section">
+      <div class="safety-weather-links d-flex justify-content-between align-items-center">
+        <a href="#" class="btn btn-outline-info btn-sm safety-btn">
+          <i class="fas fa-shield-alt me-1"></i>Safety #{{ country.safetyRank }}
+        </a>
+        <a href="#" class="btn btn-outline-info btn-sm weather-btn">
+          <i class="fas fa-cloud-sun me-1"></i>Weather #{{ country.weatherRank }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

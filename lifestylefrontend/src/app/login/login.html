@@ -1,0 +1,141 @@
+  <!-- <div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-lg custom-card" style="max-width: 400px; width: 100%;">
+      <form class="custom-form">
+        <h3 class="text-center" style="color: #2596be;">Login</h3> -->
+  
+        <!-- Email -->
+        <!-- <div class="mb-3">
+          <label for="emailInput" class="form-label">Email ID</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="Enter Your Email ID"
+            [(ngModel)]="users.email"
+            name="email"
+          />
+        </div> -->
+  <!-- show ui to accept login details -->
+        <!-- Password -->
+        <!-- <div class="mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="Enter Your Password"
+            [(ngModel)]="users.password"
+            name="password"
+          />
+        </div> -->
+  
+        <!-- Button -->
+        <!-- <button type="button" class="btn btn-gradient w-100" (click)="LoginHandler()">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+   -->
+
+
+   <!-- <div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-lg custom-card" style="max-width: 400px; width: 100%;">
+      <form class="custom-form">
+      
+        <h3 class="text-center mb-4" style="color:#7B3EBC;">Login</h3>
+  
+        
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email ID</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="Enter Your Email ID"
+            [(ngModel)]="users.email"
+            name="email"
+            required
+          />
+        </div>
+  
+      
+        <div class="mb-2">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="Enter Your Password"
+            [(ngModel)]="users.password"
+            name="password"
+            required
+          />
+        </div>
+  
+        
+        <div class="mb-3 text-end">
+          <a href="/forgot-password" class="forgot-link small"  style="color:#7B3EBC;">
+            Forgot Password?
+          </a>
+        </div>
+  
+       
+        <button type="button" class="btn btn-gradient w-100" (click)="LoginHandler()">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+   -->
+
+
+
+   <div class="login-wrapper">
+    <div class="card p-4 custom-card shadow-lg">
+      <div class="text-center mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/12523/12523137.png" alt="Login Icon" class="login-icon" />
+
+        <h3 class="login-title">Welcome Back</h3>
+        <p class="login-subtitle">Sign in to continue</p>
+      </div>
+  
+      <form class="custom-form" (ngSubmit)="LoginHandler()">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email ID</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="Enter your email"
+            [(ngModel)]="users.email"
+            name="email"
+            required
+          />
+        </div>
+  
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="Enter your password"
+            [(ngModel)]="users.password"
+            name="password"
+            required
+          />
+        </div>
+  
+        <!-- Forgot Password -->
+        <div class="forgot-password-wrapper text-end mb-3 mt-3">
+          <a (click)="navigateToForgotPassword()" class="forgot-link">Forgot Password?</a>  <!--(click)="ForgotPasswordHandler($event)"-->
+        </div>
+  
+        <!-- Button -->
+        <button type="submit" class="btn btn-gradient w-100">Sign In</button>
+      </form>
+    </div>
+  </div>

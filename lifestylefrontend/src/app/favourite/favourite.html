@@ -1,0 +1,142 @@
+<!-- <div *ngIf="userCountry">
+  <h3>Your Country</h3>
+  <app-country-card [country]="userCountry" [showAddToFavourite]="false"></app-country-card>
+</div> -->
+
+<div *ngIf="favouriteCountries.length > 0; else noFavs">
+  <h3>Your Favourite Countries</h3>
+  <div class="favourite-cards">
+    <app-country-card *ngFor="let fav of favouriteCountries" [country]="fav" [showAddToFavourite]="true" [userFavourites]="userFavouriteNames"></app-country-card>
+  </div>
+  <div class="compare-section mt-4">
+    <label for="compareSelect">Compare your country with:</label>
+    <select id="compareSelect" [(ngModel)]="selectedCompareCountry">
+      <option *ngFor="let fav of favouriteCountries" [ngValue]="fav">{{ fav.name }}</option>
+    </select>
+    <button class="btn btn-primary btn-sm ms-2" (click)="compareCountries()" [disabled]="!selectedCompareCountry">Compare</button>
+  </div>
+  <div *ngIf="comparisonResult" class="container comparison-details-section mt-5">
+    <h3 class="comparison-overview-title text-center mb-4">
+      {{ userCountry.name }} vs {{ selectedCompareCountry.name }}
+    </h3>
+    <div class="comparison-category">
+      <h4 class="category-title">Overview</h4>
+      <div class="metric-row">
+        <span class="metric-label">Global Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.rank.user < comparisonResult.rank.favourite, 'worse': comparisonResult.rank.user > comparisonResult.rank.favourite}">{{ comparisonResult.rank.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.rank.favourite < comparisonResult.rank.user, 'worse': comparisonResult.rank.favourite > comparisonResult.rank.user}">{{ comparisonResult.rank.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Average Cost of Living</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.avgCost.user < comparisonResult.avgCost.favourite, 'worse': comparisonResult.avgCost.user > comparisonResult.avgCost.favourite}">${{ comparisonResult.avgCost.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.avgCost.favourite < comparisonResult.avgCost.user, 'worse': comparisonResult.avgCost.favourite > comparisonResult.avgCost.user}">${{ comparisonResult.avgCost.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Tax Rate</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.taxRate.user < comparisonResult.taxRate.favourite, 'worse': comparisonResult.taxRate.user > comparisonResult.taxRate.favourite}">{{ comparisonResult.taxRate.user }}%</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.taxRate.favourite < comparisonResult.taxRate.user, 'worse': comparisonResult.taxRate.favourite > comparisonResult.taxRate.user}">{{ comparisonResult.taxRate.favourite }}%</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-category">
+      <h4 class="category-title">Living Costs</h4>
+      <div class="metric-row">
+        <span class="metric-label">Rent Cost</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.rent.user < comparisonResult.rent.favourite, 'worse': comparisonResult.rent.user > comparisonResult.rent.favourite}">${{ comparisonResult.rent.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.rent.favourite < comparisonResult.rent.user, 'worse': comparisonResult.rent.favourite > comparisonResult.rent.user}">${{ comparisonResult.rent.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Groceries</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.food.user < comparisonResult.food.favourite, 'worse': comparisonResult.food.user > comparisonResult.food.favourite}">${{ comparisonResult.food.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.food.favourite < comparisonResult.food.user, 'worse': comparisonResult.food.favourite > comparisonResult.food.user}">${{ comparisonResult.food.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Healthcare</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.healthcare.user < comparisonResult.healthcare.favourite, 'worse': comparisonResult.healthcare.user > comparisonResult.healthcare.favourite}">${{ comparisonResult.healthcare.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.healthcare.favourite < comparisonResult.healthcare.user, 'worse': comparisonResult.healthcare.favourite > comparisonResult.healthcare.user}">${{ comparisonResult.healthcare.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Education</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.educationCost.user < comparisonResult.educationCost.favourite, 'worse': comparisonResult.educationCost.user > comparisonResult.educationCost.favourite}">${{ comparisonResult.educationCost.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.educationCost.favourite < comparisonResult.educationCost.user, 'worse': comparisonResult.educationCost.favourite > comparisonResult.educationCost.user}">${{ comparisonResult.educationCost.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Transportation</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.transport.user < comparisonResult.transport.favourite, 'worse': comparisonResult.transport.user > comparisonResult.transport.favourite}">${{ comparisonResult.transport.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.transport.favourite < comparisonResult.transport.user, 'worse': comparisonResult.transport.favourite > comparisonResult.transport.user}">${{ comparisonResult.transport.favourite }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-category">
+      <h4 class="category-title">Quality & Safety</h4>
+      <div class="metric-row">
+        <span class="metric-label">Women Safety Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.safetyRank.user > comparisonResult.safetyRank.favourite, 'worse': comparisonResult.safetyRank.user < comparisonResult.safetyRank.favourite}">#{{ comparisonResult.safetyRank.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.safetyRank.favourite > comparisonResult.safetyRank.user, 'worse': comparisonResult.safetyRank.favourite < comparisonResult.safetyRank.user}">#{{ comparisonResult.safetyRank.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Weather Rank</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.weatherRank.user > comparisonResult.weatherRank.favourite, 'worse': comparisonResult.weatherRank.user < comparisonResult.weatherRank.favourite}">#{{ comparisonResult.weatherRank.user }}</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.weatherRank.favourite > comparisonResult.weatherRank.user, 'worse': comparisonResult.weatherRank.favourite < comparisonResult.weatherRank.user}">#{{ comparisonResult.weatherRank.favourite }}</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Environmental Index</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.environment.user > comparisonResult.environment.favourite, 'worse': comparisonResult.environment.user < comparisonResult.environment.favourite}">{{ comparisonResult.environment.user }}/100</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.environment.favourite > comparisonResult.environment.user, 'worse': comparisonResult.environment.favourite < comparisonResult.environment.user}">{{ comparisonResult.environment.favourite }}/100</span>
+        </div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Crime Rate</span>
+        <div class="metric-values">
+          <span class="value-item" [ngClass]="{'better': comparisonResult.crimeRate.user < comparisonResult.crimeRate.favourite, 'worse': comparisonResult.crimeRate.user > comparisonResult.crimeRate.favourite}">{{ comparisonResult.crimeRate.user }} per 100k</span>
+          <i class="fas fa-arrow-right arrow-icon"></i>
+          <span class="value-item" [ngClass]="{'better': comparisonResult.crimeRate.favourite < comparisonResult.crimeRate.user, 'worse': comparisonResult.crimeRate.favourite > comparisonResult.crimeRate.user}">{{ comparisonResult.crimeRate.favourite }} per 100k</span>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="recommendation-section mt-4">
+      <div class="recommendation-card text-center">
+        <h4 class="recommendation-title">Which country is recommended for you?</h4>
+        <p class="recommendation-text">Based on lower cost and higher safety/environmental ranks, we recommend:</p>
+        <div class="recommended-country-display mt-4">
+          <h5 class="country-full-name">
+            {{ getRecommendedCountryName() }}
+          </h5>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+<ng-template #noFavs>
+  <p>You have no favourite countries yet.</p>
+</ng-template>

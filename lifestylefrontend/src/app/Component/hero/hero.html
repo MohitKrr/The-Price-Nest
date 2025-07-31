@@ -1,0 +1,170 @@
+<div class="hero-section">
+  <div class="container text-center">
+    <div class="top-tag d-inline-flex align-items-center mb-3">
+      <i class="fas fa-globe me-2"></i>
+      <span>195+ Countries Available</span>
+    </div>
+
+    <h1 class="hero-title mb-3">
+      Find Your Perfect <span class="gradient-text">Lifestyle Destination</span>
+    </h1>
+
+    <p class="hero-description mb-5">
+      Compare living costs, safety rankings, weather, and quality of life across
+      countries worldwide. Make data-driven decisions for your next adventure.
+    </p>
+
+    <div class="hero-buttons d-flex justify-content-center">
+      <button class="btn btn-primary-gradient me-3" routerLink="/countries">
+        <i class="fas fa-compass me-2"></i> Explore Countries
+        <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+      <!-- <button 
+  class="btn btn-outline-secondary-custom" 
+  (click)="scrollToCardsGrid()"
+>
+  <i class="fas fa-star me-2"></i> View Top Ranked
+</button> -->
+
+    </div>
+  </div>
+</div>
+
+<div class="features-section">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 feature-item">
+        <h2 class="feature-number">195+</h2>
+        <p class="feature-text">Countries</p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <h2 class="feature-number">12</h2>
+        <p class="feature-text">Key Metrics</p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <h2 class="feature-number">Real-time</h2>
+        <p class="feature-text">Data Updates</p>
+      </div>
+      <div class="col-md-3 feature-item">
+        <h2 class="feature-number">Free</h2>
+        <p class="feature-text">Comparisons</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div id="cardsGridSection" class="cards-grid-section">
+  <h1 class="hero-title mb-3" style="text-align: center;">
+    <span class="gradient-text">Top Rated Countries</span>
+  </h1>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'CH',
+          name: 'Switzerland',
+          rank: 1,
+          avgCost: 4200,
+          taxRate: 22,
+          environment: 87,
+          rent: 2800,
+          food: 650,
+          healthcare: 450,
+          transport: 180,
+          safetyRank: 3,
+          weatherRank: 25
+        }"></app-country-card>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'SG',
+          name: 'Singapore',
+          rank: 2,
+          avgCost: 3200,
+          taxRate: 17,
+          environment: 79,
+          rent: 2200,
+          food: 450,
+          healthcare: 300,
+          transport: 120,
+          safetyRank: 1,
+          weatherRank: 45
+        }"></app-country-card>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'NO',
+          name: 'Norway',
+          rank: 3,
+          avgCost: 3500,
+          taxRate: 38,
+          environment: 93,
+          rent: 1800,
+          food: 580,
+          healthcare: 50,
+          transport: 150,
+          safetyRank: 2,
+          weatherRank: 65
+        }"></app-country-card>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'DK',
+          name: 'Denmark',
+          rank: 4,
+          avgCost: 2800,
+          taxRate: 45,
+          environment: 82,
+          rent: 1600,
+          food: 420,
+          healthcare: 0,
+          transport: 130,
+          safetyRank: 4,
+          weatherRank: 40
+        }"></app-country-card>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'NL',
+          name: 'Netherlands',
+          rank: 5,
+          avgCost: 2600,
+          taxRate: 36,
+          environment: 75,
+          rent: 1400,
+          food: 380,
+          healthcare: 120,
+          transport: 110,
+          safetyRank: 8,
+          weatherRank: 35
+        }"></app-country-card>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <app-country-card [country]="{
+          abbr: 'CA',
+          name: 'Canada',
+          rank: 6,
+          avgCost: 2400,
+          taxRate: 26,
+          environment: 71,
+          rent: 1200,
+          food: 350,
+          healthcare: 0,
+          transport: 100,
+          safetyRank: 12,
+          weatherRank: 55
+        }"></app-country-card>
+      </div>
+      </div>
+  </div>
+</div>

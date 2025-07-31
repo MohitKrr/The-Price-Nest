@@ -1,0 +1,133 @@
+<!-- <div>
+  <label>Email Id</label>
+  <input type="text" placeholder="Enter Your Email Id" [(ngModel)]=" users.email"><br>
+  <label>Password</label>
+  <input type="text" placeholder="Enter Your Password" [(ngModel)]=" users.password"><br>
+  <button (click)="RegisterHandler()">Sign Up</button>
+</div> -->
+
+<!-- <div class="container mt-4" style="max-width: 400px;">
+  <form class="custom-form">
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Email ID</label>
+      <input
+        type="email"
+        class="form-control"
+        id="emailInput"
+        placeholder="Enter Your Email ID"
+        [(ngModel)]="users.email"
+        name="email"
+      
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="passwordInput"
+        placeholder="Enter Your Password"
+        [(ngModel)]="users.password"
+        name="password"
+      
+      />
+    </div>
+
+    <button type="button" class="btn btn-primary w-100" (click)="RegisterHandler()">
+      Sign Up
+    </button>
+  </form>
+</div> -->
+
+
+<!-- <div class="container mt-5 d-flex justify-content-center">
+  <div class="card p-4 shadow-lg custom-card" style="max-width: 400px; width: 100%;">
+    <form class="custom-form">
+      <h3 class="text-center" style="color: #2596be;">Register</h3>
+     
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email ID</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailInput"
+          placeholder="Enter Your Email ID"
+          [(ngModel)]="users.email"
+          name="email"
+        />
+      </div>
+
+     
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="passwordInput"
+          placeholder="Enter Your Password"
+          [(ngModel)]="users.password"
+          name="password"
+        />
+      </div>
+
+     
+      <button type="button" class="btn btn-gradient w-100" (click)="RegisterHandler()">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+ -->
+
+
+ <div class="login-wrapper">
+  <div class="card p-4 custom-card shadow-lg">
+    <div class="text-center mb-4">
+      <img
+      src="https://cdn-icons-png.flaticon.com/512/1251/1251895.png"
+        alt="Register Icon"
+        class="register-icon"
+      />
+      <h3 class="register-title">Create Account</h3>
+      <p class="register-subtitle">Sign up to get started</p>
+    </div>
+
+    <form class="custom-form" (ngSubmit)="RegisterHandler()" #registerForm="ngForm">
+     
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email ID</label>
+        <input
+        type="email"
+        class="form-control"
+        id="emailInput"
+        placeholder="Enter Your Email ID"
+        [(ngModel)]="users.email"
+        name="email"
+          required
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="mb-4">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input
+        type="password"
+        class="form-control"
+        id="passwordInput"
+        placeholder="Enter Your Password"
+        [(ngModel)]="users.password"
+        name="password"
+          required
+        />
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn btn-gradient w-100">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,128 @@
+<header class="custom-header py-3 py-md-4">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Logo and Brand -->
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center" routerLink="/">
+          <img src="assets/Images/Media5.png" alt="LifeStyle Logistics Logo" class="logo">
+          <div class="brand-text">
+            <h1 class="app-title">The Price Nest</h1>
+            <p class="tagline">Compare Countries • Find Your Perfect Home</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Menu Button -->
+      <button class="navbar-toggler d-lg-none" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen" aria-controls="navbarNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark p-0 d-none d-lg-block">
+        <div class="navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/countries">Countries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/comparision">Comparision</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <a class="nav-link" routerLink="/favourite">Favourite</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/about">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Desktop Right Section -->
+      <div class="d-none d-lg-flex align-items-center">
+        <div class="countries-info me-3 d-flex align-items-center">
+          <i class="fas fa-map-marker-alt me-1"></i>
+          <span>195+ Countries</span>
+        </div>
+
+        <ng-container *ngIf="!isLoggedIn">
+          <a class="btn btn-outline-light sign-in-btn me-2" routerLink="/login">
+            <i class="fas fa-sign-in-alt me-1"></i>Sign In
+          </a>
+          <a class="btn btn-purple sign-up-btn" routerLink="/register">
+            <i class="fas fa-user-plus me-1"></i>Sign Up
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+          <div class="icon-container" (click)="toggle()">
+            <div class="icon">
+              👤
+            </div>
+            <div class="dropdown" *ngIf="show">
+              <div class="dropdown-item" (click)="goToProfile()">Profile</div>
+              <div class="dropdown-item" (click)="logout()">Logout</div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu d-lg-none" [class.show]="isMobileMenuOpen">
+      <div class="mobile-nav-container">
+        <!-- Mobile Countries Info -->
+        <div class="mobile-countries-info mb-3">
+          <i class="fas fa-map-marker-alt me-2"></i>
+          <span>195+ Countries</span>
+        </div>
+
+        <!-- Mobile Navigation Links -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link" routerLink="/countries" (click)="closeMobileMenu()">Countries</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link" routerLink="/comparision" (click)="closeMobileMenu()">Comparision</a>
+            </li>
+            <li class="mobile-nav-item" *ngIf="isLoggedIn">
+              <a class="mobile-nav-link" routerLink="/favourite" (click)="closeMobileMenu()">Favourite</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a class="mobile-nav-link" routerLink="/about" (click)="closeMobileMenu()">About</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Auth Buttons -->
+        <div class="mobile-auth-buttons">
+          <ng-container *ngIf="!isLoggedIn">
+            <a class="btn btn-outline-light sign-in-btn w-100 mb-2" routerLink="/login" (click)="closeMobileMenu()">
+              <i class="fas fa-sign-in-alt me-1"></i>Sign In
+            </a>
+            <a class="btn btn-purple sign-up-btn w-100" routerLink="/register" (click)="closeMobileMenu()">
+              <i class="fas fa-user-plus me-1"></i>Sign Up
+            </a>
+          </ng-container>
+
+          <ng-container *ngIf="isLoggedIn">
+            <div class="mobile-profile-section">
+              <div class="mobile-profile-info mb-3">
+                <div class="mobile-icon">👤</div>
+                <span class="mobile-user-email">{{ userEmail }}</span>
+              </div>
+              <div class="mobile-profile-actions">
+                <a class="btn btn-outline-light w-100 mb-2" routerLink="/profile" (click)="closeMobileMenu()">
+                  <i class="fas fa-user me-1"></i>Profile
+                </a>
+                <button class="btn btn-outline-danger w-100" (click)="logout(); closeMobileMenu()">
+                  <i class="fas fa-sign-out-alt me-1"></i>Logout
+                </button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

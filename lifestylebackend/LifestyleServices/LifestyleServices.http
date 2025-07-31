@@ -1,0 +1,6 @@
+@LifestyleServices_HostAddress = http://localhost:5209
+
+GET {{LifestyleServices_HostAddress}}/api/LifeStyle/
+Accept: application/json
+
+###

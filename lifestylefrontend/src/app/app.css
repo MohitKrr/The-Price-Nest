@@ -1,0 +1,6 @@
+/* In styles.css or app.component.css */
+
+.cards-grid-section {
+  padding: 60px 0; /* Add some vertical space around the grid */
+  background-color: #f7f3fd; /* Match hero section background if desired */
+}

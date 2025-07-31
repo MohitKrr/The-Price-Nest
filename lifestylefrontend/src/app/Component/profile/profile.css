@@ -1,0 +1,70 @@
+.profile-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background: linear-gradient(to right, #f4e9ff, #e4dcf4);
+    padding: 40px 20px;
+  }
+  
+  .profile-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .text-purple {
+    color: #7B3EBC;
+  }
+  
+  .custom-form label {
+    font-weight: 600;
+  }
+  
+  .custom-form input,
+  .custom-form select {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  .custom-form input:focus,
+  .custom-form select:focus {
+    border-color: #7B3EBC;
+    box-shadow: 0 0 6px rgba(123, 62, 188, 0.3);
+    outline: none;
+  }
+  
+  .btn-gradient {
+    background: linear-gradient(to right, #7B3EBC, #a57ae2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #5a2a8a, #8d5dd4);
+    color: #fff;
+  }
+
+
+  .password-input {
+    position: relative;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    user-select: none;
+  }
+  
+  
