@@ -1,0 +1,198 @@
+/* FAQ container styling */
+/* .faq-section {
+    max-width: 700px;
+    margin: 0 auto;
+  } */
+  
+  /* Style the question header */
+  /* .accordion-header {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+  } */
+  
+  /* Style the "Show"/"Hide" button */
+  /* .accordion-header .btn {
+    min-width: 70px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  } */
+  
+  /* Optional: change color on hover */
+  /* .accordion-header .btn:hover {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+    cursor: pointer;
+  }
+   */
+
+  /* .about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .accordion-button-text {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .accordion-body {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .accordion-item {
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  .accordion-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-outline-primary {
+    min-width: 60px;
+  }
+   */
+
+
+
+/* Container styling */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 2rem 0;
+}
+
+/* About section */
+.about-section {
+  background-color: #faf5fe;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px rgba(123, 62, 188, 0.1);
+  margin-bottom: 3.5rem;
+  border-left: 4px solid #7B3EBC;
+}
+
+.about-section h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: #7B3EBC;
+}
+
+.about-section p {
+  font-size: 1.16rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* FAQ Section */
+.faq-section {
+  border-radius: 12px;
+}
+
+/* FAQ Title */
+.faq-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0rem;
+  color: #7B3EBC;
+  font-weight: 600;
+}
+
+/* Accordion Items */
+.accordion-item {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0dff2;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.accordion-item:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  border-color: #d3c5eb;
+}
+
+/* Accordion Header */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordion-button-text {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #3f2c5d;
+}
+
+/* Show/Hide Button */
+.btn-outline-primary {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 25px;
+  border: 2px solid #7B3EBC;
+  color: #7B3EBC;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  min-width: 75px;
+  text-align: center;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #7B3EBC;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(123, 62, 188, 0.4);
+}
+
+/* Accordion Body */
+.accordion-body {
+ 
+  padding: 1rem 1.5rem 1.25rem 1.5rem;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  border-top: 1px solid #eee;
+}
+
+
+/* FAQ Collapse */
+.accordion-collapse.collapse {
+  display: none;
+}
+.accordion-collapse.collapse.show {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .about-section, .faq-section {
+    padding: 1.5rem 1rem;
+  }
+  .accordion-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-outline-primary {
+    margin-top: 0.5rem;
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+
+
+
+ 

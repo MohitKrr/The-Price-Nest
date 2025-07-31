@@ -1,0 +1,6 @@
+@Logistics_Country_HostAddress = http://localhost:5084
+
+GET {{Logistics_Country_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,7 @@
+<div class="row" style="margin-top: 20px;">
+    @for (l of lifestyles; track l.id) {
+      <div class="col-md-4 mb-4">
+        <app-country-card [country]="mapToCardModel(l)" [userFavourites]="userFavouriteNames"></app-country-card>
+      </div>
+    }
+  </div>

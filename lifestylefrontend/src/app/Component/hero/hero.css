@@ -1,0 +1,144 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+.hero-section {
+  background-color: #f7f3fd;
+  padding: 100px 0;
+  color: #333;
+}
+
+.hero-section .container {
+  max-width: 900px;
+}
+
+.top-tag {
+  background-color: #f0e6fa;
+  color: #7d44c9;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #e0d0f0;
+}
+
+.top-tag i {
+  color: #7d44c9;
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #4b2a8d;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #7d44c9, #e652a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons .btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .btn i {
+  font-size: 1rem;
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(to right, #7d44c9, #e652a0);
+  border: none;
+  color: white;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(to right, #6a3aae, #d04690);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary-custom {
+  background-color: transparent;
+  border: 1px solid #c9c9c9;
+  color: #666;
+}
+
+.btn-outline-secondary-custom:hover {
+  background-color: #f0e6fa;
+  border-color: #7d44c9;
+  color: #7d44c9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.features-section {
+  background-color: white;
+  padding: 60px 0;
+  border-top: 1px solid #eee;
+}
+
+.feature-item {
+  padding: 20px;
+}
+
+.feature-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4b2a8d;
+  margin-bottom: 5px;
+}
+
+.feature-text {
+  font-size: 1.1rem;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    margin-bottom: 15px;
+    margin-right: 0 !important;
+    width: 100%;
+  }
+
+  .features-section .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-item {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 30px;
+  }
+}

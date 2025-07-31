@@ -1,0 +1,348 @@
+/* General Page Styling */
+.comparison-page-container {
+  background-color: #f7f3fd; /* Light background */
+  min-height: 100vh;
+  padding-bottom: 50px; /* Space at the bottom */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Section */
+.comparison-header-section {
+  padding: 60px 0 30px;
+  background-color: #f7f3fd;
+}
+
+.back-link {
+  color: #7d44c9; /* Purple */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.comparison-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #4b2a8d; /* Dark purple */
+}
+
+.comparison-title .gradient-text {
+  background: linear-gradient(to right, #7d44c9, #e652a0); /* Purple to Pink gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.comparison-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Country Selection Cards */
+.country-selection-section {
+  margin-top: -50px; /* Pull cards up into the header section */
+}
+
+.country-select-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+  padding: 30px;
+  text-align: center;
+  height: 300px; /* Fixed height for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.country-select-card .card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4b2a8d;
+  margin-bottom: 20px;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 250px; /* Constrain select width */
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px 35px 10px 15px; /* Adjust padding for arrow */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.form-select:focus {
+  border-color: #7d44c9; /* Purple border on focus */
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(125, 68, 201, 0.25); /* Purple shadow */
+}
+
+.select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d44c9; /* Purple arrow */
+  pointer-events: none; /* Make sure arrow doesn't block select clicks */
+}
+
+.selected-country-display {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.country-abbr {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #4b2a8d;
+  line-height: 1;
+}
+
+.country-full-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.country-rank {
+  font-size: 1rem;
+  color: #888;
+  background-color: #f0e6fa; /* Light purple background */
+  padding: 5px 12px;
+  border-radius: 15px;
+}
+
+/* Comparison Details Section */
+.comparison-details-section {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  margin-bottom: 50px;
+}
+
+.comparison-overview-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4b2a8d;
+  margin-bottom: 40px;
+}
+
+.comparison-category {
+  margin-bottom: 30px;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #7d44c9; /* Purple */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5; /* Lighter border for rows */
+}
+
+.metric-row:last-child {
+  border-bottom: none; /* No border for the last row in a category */
+}
+
+.metric-label {
+  font-size: 1.05rem;
+  color: #333;
+  font-weight: 500;
+  flex-grow: 1; /* Allow label to take available space */
+}
+
+.metric-values {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between values and arrow */
+}
+
+.value-item {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #4b2a8d; /* Dark purple for values */
+  min-width: 120px; /* Ensure values align */
+  text-align: right;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Value Color Coding */
+.value-better {
+  color: #28a745 !important; /* Green for better values */
+  background-color: rgba(40, 167, 69, 0.1);
+  font-weight: 700;
+}
+
+.value-worse {
+  color: #dc3545 !important; /* Red for worse values */
+  background-color: rgba(220, 53, 69, 0.1);
+  font-weight: 700;
+}
+
+.value-neutral {
+  color: #6c757d !important; /* Gray for equal values */
+  background-color: rgba(108, 117, 125, 0.1);
+}
+
+.arrow-icon {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Arrow Icons for Comparison */
+.fa-arrow-up {
+  color: #28a745; /* Green for positive */
+}
+
+.fa-arrow-down {
+  color: #dc3545; /* Red for negative */
+}
+
+/* Recommendation Section */
+.recommendation-section {
+  background-color: #f0e6fa; /* Light purple background for recommendation */
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.recommendation-card {
+  /* Inner alignment if needed */
+}
+
+.recommendation-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4b2a8d;
+  margin-bottom: 15px;
+}
+
+.recommendation-text {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.recommended-country-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recommendation-note {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .comparison-title {
+    font-size: 2.5rem;
+  }
+
+  .comparison-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .country-select-card {
+    height: auto; /* Allow height to adjust on smaller screens */
+    padding: 20px;
+  }
+
+  .country-select-card .card-title {
+    font-size: 1.1rem;
+  }
+
+  .country-abbr {
+    font-size: 2.5rem;
+  }
+
+  .country-full-name {
+    font-size: 1.2rem;
+  }
+
+  .comparison-details-section {
+    padding: 25px;
+  }
+
+  .comparison-overview-title {
+    font-size: 1.5rem;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+  }
+
+  .metric-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 0;
+  }
+
+  .metric-values {
+    margin-top: 10px;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .value-item {
+    min-width: unset;
+    text-align: left;
+  }
+
+  .recommendation-title {
+    font-size: 1.5rem;
+  }
+
+  .recommendation-text {
+    font-size: 1rem;
+  }
+}
